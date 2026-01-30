@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudassir Asghar - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.45;
+            color: #2d3436;
+            background: #f5f6fa;
+            padding: 20px;
+            font-size: 10.5pt;
+        }
+
+        .resume {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 0.45in 0.55in;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media print {
+            @page {
+                margin: 0.35in;
+                size: letter;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                font-size: 10pt;
+            }
+
+            .resume {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .print-btn {
+                display: none !important;
+            }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #2d3436;
+        }
+
+        .name {
+            font-size: 24pt;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-size: 11pt;
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px 18px;
+            font-size: 9.5pt;
+            color: #2d3436;
+        }
+
+        .contact-info a {
+            color: #2d3436;
+            text-decoration: none;
+        }
+
+        .contact-info span {
+            white-space: nowrap;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #1a1a2e;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #dfe6e9;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 9.5pt;
+            color: #2d3436;
+            line-height: 1.5;
+        }
+
+        /* Skills */
+        .skills-inline {
+            font-size: 9.5pt;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        .skills-inline p {
+            margin-bottom: 3px;
+        }
+
+        .skills-inline strong {
+            color: #1a1a2e;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 12px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .company {
+            font-size: 9.5pt;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .date {
+            font-size: 9.5pt;
+            color: #555;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .experience-details {
+            list-style: none;
+            font-size: 9.5pt;
+            color: #2d3436;
+            margin-top: 4px;
+        }
+
+        .experience-details li {
+            margin-bottom: 3px;
+            position: relative;
+            padding-left: 14px;
+            line-height: 1.4;
+        }
+
+        .experience-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2d3436;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .project-item {
+            margin-bottom: 0;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .project-name {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .project-tech {
+            font-size: 9pt;
+            color: #555;
+            font-style: italic;
+        }
+
+        .project-desc {
+            font-size: 9.5pt;
+            color: #2d3436;
+            line-height: 1.4;
+        }
+
+        /* Education */
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .edu-degree {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .edu-school {
+            font-size: 9.5pt;
+            color: #555;
+        }
+
+        .edu-details {
+            font-size: 9.5pt;
+            color: #2d3436;
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #2d3436;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .print-btn:hover {
+            background: #1a1a2e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="name">Mudassir Asghar</h1>
+            <p class="title">Web Developer | WordPress Expert | SEO Specialist</p>
+            <div class="contact-info">
+                <span>Bahawalpur, Pakistan</span>
+                <span>|</span>
+                <span>(+92) 336-787-6763</span>
+                <span>|</span>
+                <span><a href="mailto:contact@mudassirasghar.com">contact@mudassirasghar.com</a></span>
+                <span>|</span>
+                <span><a href="https://linkedin.com/in/mudassir-asghar" target="_blank">LinkedIn</a></span>
+                <span>|</span>
+                <span><a href="https://github.com/Mudassirdbs" target="_blank">GitHub</a></span>
+                <span>|</span>
+                <span><a href="https://mudassirasghar.com" target="_blank">Portfolio</a></span>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title">Summary</h2>
+            <p class="summary">
+                Results-driven Web Developer with 3+ years of experience building fast, scalable, and SEO-optimized
+                websites. Expertise in front-end development (HTML, CSS, JavaScript), WordPress custom development, and
+                technical SEO. Proven track record of delivering high-performance web solutions that improve user
+                engagement and search rankings.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-inline">
+                <p><strong>Languages:</strong> HTML5, CSS3, JavaScript, Java, Python, TypeScript</p>
+                <p><strong>Tools & Frameworks:</strong> React, WordPress, Git, GitHub, VS Code, Figma, Docker</p>
+                <p><strong>Specializations:</strong> Responsive Design, Technical SEO, On-Page SEO, Speed Optimization
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <span class="job-title">Co-Founder & Lead Developer</span>
+                        <span class="company"> — Marketing Agency</span>
+                    </div>
+                    <div class="date">Jan 2025 – Present</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Co-founded a digital marketing agency delivering end-to-end web development and SEO services
+                    </li>
+                    <li>Lead development of client websites, achieving 40%+ improvement in page load speeds</li>
+                    <li>Implement technical SEO strategies resulting in improved organic search rankings</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <span class="job-title">Freelance Web Developer & SEO Specialist</span>
+                        <span class="company"> — Self-Employed</span>
+                    </div>
+                    <div class="date">2023 – Present</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Designed and developed 30+ responsive WordPress websites with custom themes</li>
+                    <li>Optimized website performance achieving 90+ scores on Google PageSpeed Insights</li>
+                    <li>Implemented SEO best practices, improving client website rankings on Google</li>
+                    <li>Created brand identities including logos, color schemes, and visual design systems</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name"><a href="https://github.com/Mudassirdbs" target="_blank"
+                                style="color: #1a1a2e; text-decoration: none;">Core Web Vitals Checker</a></span>
+                        <span class="project-tech">JavaScript, Node.js, PageSpeed API</span>
+                    </div>
+                    <p class="project-desc">Web application that analyzes performance metrics (LCP, FID, CLS) with
+                        actionable optimization suggestions and PDF report generation.</p>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name"><a href="https://alt-status-new.vercel.app" target="_blank"
+                                style="color: #1a1a2e; text-decoration: none;">Alt Status — FBR Tax Status
+                                Checker</a></span>
+                        <span class="project-tech">Python, Flask, HTML, Vercel</span>
+                    </div>
+                    <p class="project-desc">Web app for Pakistani users to check FBR filer/non-filer tax status by
+                        entering CNIC number.</p>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name"><a href="https://github.com/Mudassirdbs" target="_blank"
+                                style="color: #1a1a2e; text-decoration: none;">Shopify Risk & Compliance
+                                Checker</a></span>
+                        <span class="project-tech">JavaScript, React</span>
+                    </div>
+                    <p class="project-desc">Real-time analysis tool for Shopify stores to assess compliance risks and
+                        detect payment gateways.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section" style="margin-bottom: 0;">
+            <h2 class="section-title">Education</h2>
+            <div class="experience-item" style="margin-bottom: 8px;">
+                <div class="edu-header">
+                    <div>
+                        <span class="edu-degree">Bachelor of Science in Computer Science</span>
+                        <span class="edu-school"> — The Islamia University of Bahawalpur</span>
+                    </div>
+                    <div class="date">Expected 2027</div>
+                </div>
+                <p class="edu-details">CGPA: 3.4/4.0 | 6th Semester | Coursework: Data Structures, Algorithms, Database
+                    Systems, Software Engineering</p>
+            </div>
+            <div class="experience-item" style="margin-bottom: 0;">
+                <div class="edu-header">
+                    <div>
+                        <span class="edu-degree">FSc Pre-Medical</span>
+                        <span class="edu-school"> — Asif Saleem Higher Secondary School</span>
+                    </div>
+                    <div class="date">Completed</div>
+                </div>
+                <p class="edu-details">Marks: 990/1100 (90%)</p>
+            </div>
+        </section>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Save as PDF</button>
+</body>
+
+</html>
